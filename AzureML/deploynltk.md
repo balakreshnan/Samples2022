@@ -61,6 +61,91 @@ myenv.python.conda_dependencies = conda_deps
 ```
 
 ```
+%%writefile score.py
+import os
+import pickle
+import json
+import numpy
+import nltk
+from sklearn.externals import joblib
+from sklearn.linear_model import Ridge
+import nltk.classify.util
+from nltk.classify import NaiveBayesClassifier
+from nltk.corpus import movie_reviews
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from azureml.core.webservice import Webservice
+from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment
+from azureml.core import Workspace
+from azureml.core.model import Model
+
+def init():
+    global model
+    # AZUREML_MODEL_DIR is an environment variable created during deployment.
+    # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
+    # For multiple models, it points to the folder containing all deployed models (./azureml-models)
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'naivebayes.pickle')
+    # deserialize the model file back into a sklearn model
+    from azureml.core.authentication import ServicePrincipalAuthentication
+
+    svc_pr_password = os.environ.get("AZUREML_PASSWORD")
+
+    svc_pr = ServicePrincipalAuthentication(
+        tenant_id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        service_principal_id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        service_principal_password="xxxxxxxxxxxxxxxxxxxxxxxx")
+
+
+    ws = Workspace(
+        subscription_id="c46a9435-c957-4e6c-a0f4-b9a597984773",
+        resource_group="mlops",
+        workspace_name="mlopsdev",
+        auth=svc_pr
+        )
+
+    # ws = Workspace.from_config()
+    model = Model(ws, 'naivebayes.pickle')
+    model.download(target_dir='.', exist_ok=False, exists_ok=None)
+    
+    classifier_f = open("naivebayes.pickle", "rb")
+    model = pickle.load(classifier_f)
+    
+# This is how the Naive Bayes classifier expects the input
+def create_word_features(words):
+    useful_words = [word for word in words if word not in stopwords.words("english")]
+    my_dict = dict([(word, True) for word in useful_words])
+    return my_dict
+
+# note you can pass in multiple rows for scoring
+def run(raw_data):
+    try:
+        data = json.loads(raw_data)['data']
+        #data = numpy.array(data)
+        nltk.download('punkt')
+        nltk.download('stopwords')
+        #result = model.predict(data)
+        review_santa = '''
+
+        It would be impossible to sum up all the stuff that sucks about this film, so I'll break it down into what I remember most strongly: a man in an ingeniously fake-looking polar bear costume (funnier than the "bear" from Hercules in New York); an extra with the most unnatural laugh you're ever likely to hear; an ex-dope addict martian with tics; kid actors who make sure every syllable of their lines are slowly and caaarreee-fulll-yyy prrooo-noun-ceeed; a newspaper headline stating that Santa's been "kidnaped", and a giant robot. Yes, you read that right. A giant robot.
+
+        The worst acting job in here must be when Mother Claus and her elves have been "frozen" by the "Martians'" weapons. Could they be *more* trembling? I know this was the sixties and everyone was doped up, but still.
+        '''
+        print(review_santa )
+        
+        words = word_tokenize(review_santa)
+        words = create_word_features(words)
+        result = model.classify(words)
+
+        #result = nltk.classify.accuracy(model, data))*100
+        # you can return any data type as long as it is JSON-serializable
+        return result #.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
+
+```
 from azureml.core.model import InferenceConfig
 
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
