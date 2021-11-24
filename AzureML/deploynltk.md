@@ -98,7 +98,7 @@ def init():
 
 
     ws = Workspace(
-        subscription_id="c46a9435-c957-4e6c-a0f4-b9a597984773",
+        subscription_id="xxxxxxxxxxxxxxxxxxxxxxxxxxx",
         resource_group="mlops",
         workspace_name="mlopsdev",
         auth=svc_pr
