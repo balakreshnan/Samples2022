@@ -92,6 +92,12 @@ https://vault.azure.net
 https://login.microsoftonline.com/tenantid/oauth2/token
 ```
 
+- for body
+
+```
+@concat('grant_type=client_credentials&client_id=',variables('clientid'),'&resource=https://management.core.windows.net/&client_secret=',variables('clienttoken'))
+```
+
 - now save the token in variable
 
 ```
@@ -106,6 +112,10 @@ https://login.microsoftonline.com/tenantid/oauth2/token
 
 ```
 https://login.microsoftonline.com/tenantid/oauth2/token
+```
+
+```
+@concat('grant_type=client_credentials&client_id=',variables('clientid'),'&resource=https://ml.azure.com/&client_secret=',variables('clienttoken'))
 ```
 
 - Save the scoring token in a variable
