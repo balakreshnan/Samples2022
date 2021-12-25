@@ -26,7 +26,7 @@
 - Let's build a solution for the above modern data regulated data platform
 - Choice is to show how it can be achieved by using Azure synapse analytics - unified platform
 
-[!(https://github.com/balakreshnan/Samples2022/blob/main/DataPlatform/images/aifabmesh-Page-2.jpg)](Architecture)
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/DataPlatform/images/aifabmesh-Page-2.jpg "Architecture")
 
 ## Solution
 
