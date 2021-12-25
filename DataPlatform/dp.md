@@ -45,3 +45,5 @@
 - Mesh can be split based on country for global companies
 - Synapse Spark, serverless SQL provides way to connect to country specific storage and read when needed, instead moving data
 - This also applies to different business domains as well.
+- Multi cloud data store is not added for now will be future based
+- Multi engine or data processing is durable
