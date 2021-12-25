@@ -34,3 +34,14 @@
 - Top part which is the high level architecture for data regulated platform
 - Bottom part is the common services that each mesh/centralized platform will follow
 - Bottom part is also the data governance that cut's across the entire platform
+- Common data model can be part of both Mesh and Centralized data platform
+- Data security and infra security both are applied
+- Data security is how the rows are filtered based on user context. So only authorized users can access necessary part of the system
+- Optional block chain can be used for lineage
+- Ability to converge any type of data is also covered
+- Above architecture can accomodate GDPR, CCPA and other data regulations
+- By using Purview we can manage the data governance and lineage
+- By using Azure Machine learning, data can extend to build own insights using machine/deep learning
+- Mesh can be split based on country for global companies
+- Synapse Spark, serverless SQL provides way to connect to country specific storage and read when needed, instead moving data
+- This also applies to different business domains as well.
