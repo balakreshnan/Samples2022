@@ -10,6 +10,7 @@
 - For this article i am only calculating for the US
 - use carbonfund.org to calculate your carbon footprint
 - I wanted to know how much do i contribute to the carbon footprint of the US
+- Calculator and other details from here - https://carbonfund.org/
 
 ## Sustainability concept
 
