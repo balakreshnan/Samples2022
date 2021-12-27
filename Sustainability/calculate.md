@@ -57,6 +57,11 @@
 - Create a tab for every year
 - Monitor and see how your personal carbon footprint changes over time
 
+## Power App
+
+- Created a Power App to calculate your personal carbon footprint
+- here is the link - https://apps.preview.powerapps.com/play/5245c89b-a432-419f-ae43-04071771646d?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47
+
 ## Business Carbon Footprint topics
 
 - Lets look at sustainability for a business carbon footprint that we contribute to
