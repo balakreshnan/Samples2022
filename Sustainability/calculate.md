@@ -61,6 +61,13 @@
 
 - Created a Power App to calculate your personal carbon footprint
 - here is the link - https://apps.preview.powerapps.com/play/5245c89b-a432-419f-ae43-04071771646d?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47
+- Go to carbonfund.org and then select the apprpriate category values and input in the form
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/Sustainability/images/sust11.jpg "Architecture")
+
+- Then Click on the Calculate button
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/Sustainability/images/sust12.jpg "Architecture")
 
 ## Business Carbon Footprint topics
 
