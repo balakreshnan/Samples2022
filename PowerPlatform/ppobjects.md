@@ -1,10 +1,10 @@
-# Detect custom objects in an image or photo using custom vision ai model
+# Detect physical security and privacy device custom objects in an image or photo using custom vision ai model
 
 ## Using Azure cognitive custom vision service with power apps and flow
 
 ## Use case
 
-- Create a physical securitya and privacy device detection
+- Create a physical security and privacy device detection
 - Objects like knife, gun, etc.
 - Objects like listening devices like alexa, google home, cellphone, etc.
 
