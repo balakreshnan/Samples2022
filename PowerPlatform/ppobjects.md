@@ -187,3 +187,10 @@ predictions
 - Append a variable
 - Set output variable with above variable
 - Respond to Power App
+- Below is the sample output from power app
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/PowerPlatform/images/ppdetect14.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/PowerPlatform/images/ppdetect15.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/PowerPlatform/images/ppdetect16.jpg "Architecture")
