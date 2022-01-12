@@ -55,6 +55,9 @@
 
 - Create a blank app
 - insert Media -> Add Picture -> and drag to canvas
+- Click actions -> Power automate and select the flow created below
+- Create the power flow as below first before proceeding to next step
+- Once the flow is create then follow the below
 - Insert a Button
 - Insert a text box
 
