@@ -182,7 +182,7 @@ ax.set_aspect('equal')
 #ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
 
 world.boundary.plot(ax=ax, color='black')
-gdf.apply(lambda x: ax.annotate(s=x.country_name, xy=x.geometry.coords[0], ha='center', fontsize=14),axis=1);
+#gdf.apply(lambda x: ax.annotate(s=x.country_name, xy=x.geometry.coords[0], ha='center', fontsize=14),axis=1);
 gdf.plot(ax=ax, color='red', marker='o', markersize=2)
 #onlinegdf.plot(ax=ax, marker='o', color='red', markersize=2)
 
