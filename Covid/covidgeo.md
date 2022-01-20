@@ -190,4 +190,6 @@ gdf.plot(ax=ax, color='red', marker='o', markersize=2)
 plt.show();
 ```
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/Covid/images/covid1.jpg "Architecture")
+
 - More to come
