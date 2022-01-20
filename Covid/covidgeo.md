@@ -202,6 +202,13 @@ usa-states-census-2014.dbf
 usa-states-census-2014.shp
 ```
 
+- Load states infor
+
+```
+states = geopandas.read_file('usa-states-census-2014.shp')
+type(states)
+```
+
 - Filter only US conuntry data from the world data set
 
 ```
