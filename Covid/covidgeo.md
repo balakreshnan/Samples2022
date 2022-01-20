@@ -192,4 +192,36 @@ plt.show();
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/Covid/images/covid1.jpg "Architecture")
 
-- More to come
+## Plot with States only for US
+
+- Need the below 3 files from this repo
+
+```
+usa-states-census-2014.shx
+usa-states-census-2014.dbf
+usa-states-census-2014.shp
+```
+
+- Filter only US conuntry data from the world data set
+
+```
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(20,29))
+ax.set_aspect('equal')
+#ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
+#ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
+
+#world.plot(ax=ax, color='white')
+states.boundary.plot(ax=ax, color='black')
+#states.apply(lambda x: ax.annotate(s=x.NAME, xy=x.geometry.centroid.coords[0], ha='center', fontsize=14),axis=1);
+states.apply(lambda x: ax.annotate(s=x.NAME, xy=x.geometry.centroid.coords[0], ha='center', fontsize=14),axis=1);
+#cities.plot(ax=ax, marker='*', color='green', markersize=2);
+gdf[(gdf.location_key == 'US')].plot(ax=ax, color='red', marker='o', markersize=2)
+
+
+plt.show();
+```
+
+- Here is the output
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/Covid/images/covid2.jpg "Architecture")
