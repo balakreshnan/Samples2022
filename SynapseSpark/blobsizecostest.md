@@ -4,7 +4,7 @@
 
 ## Prerequsites
 
-- Azure Susbcription
+- Azure Subcription
 - Azure Syanpse Analtyics Workspace
 - Azure Storage Account used
 - Create a Spark Cluster
