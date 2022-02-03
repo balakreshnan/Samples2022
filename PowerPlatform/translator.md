@@ -82,6 +82,148 @@ Ocp-Apim-Subscription-Region: centralus (use your own region where the cognitive
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/PowerPlatform/images/translate1.jpg "Architecture")
 
+- output with 2 languages
+
+```
+[
+  {
+    "translations": [
+      {
+        "text": "我真的很想为微软开你的车在街区周围几次。",
+        "to": "zh-Hans",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            20
+          ]
+        }
+      },
+      {
+        "text": "Ich würde wirklich gerne Ihr Auto ein paar Mal für Microsoft um den Block fahren.",
+        "to": "de",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            81
+          ]
+        }
+      }
+    ]
+  }
+]
+```
+
+- output with 10 different languages
+
+```
+[
+  {
+    "translations": [
+      {
+        "text": "我真的很想为微软开你的车在街区周围几次。",
+        "to": "zh-Hans",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            20
+          ]
+        }
+      },
+      {
+        "text": "我真的很想為微軟開你的車在街區周圍幾次。",
+        "to": "zh-Hant",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            20
+          ]
+        }
+      },
+      {
+        "text": "J’aimerais vraiment conduire votre voiture autour du bloc plusieurs fois pour Microsoft.",
+        "to": "fr",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            88
+          ]
+        }
+      },
+      {
+        "text": "Je voudrais vraiment conduire votre voiture autour du bloc à quelques reprises pour Microsoft.",
+        "to": "fr-CA",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            94
+          ]
+        }
+      },
+      {
+        "text": "私は本当にマイクロソフトのためにブロックの周りにあなたの車を数回運転したいと思います。",
+        "to": "ja",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            43
+          ]
+        }
+      },
+      {
+        "text": "Eu realmente gostaria de dirigir o seu carro ao redor do quarteirão algumas vezes para a Microsoft.",
+        "to": "pt",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            99
+          ]
+        }
+      },
+      {
+        "text": "Realmente me gustaría conducir su automóvil alrededor de la cuadra varias veces para Microsoft.",
+        "to": "es",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            95
+          ]
+        }
+      },
+      {
+        "text": "Ich würde wirklich gerne Ihr Auto ein paar Mal für Microsoft um den Block fahren.",
+        "to": "de",
+        "sentLen": {
+          "srcSentLen": [
+            81
+          ],
+          "transSentLen": [
+            81
+          ]
+        }
+      }
+    ]
+  }
+]
+```
+
 ## Notes
 
 - Custom translator has Blue score
