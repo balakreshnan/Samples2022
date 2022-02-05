@@ -1,4 +1,4 @@
-# Calculate your own carbon footprint for Sustainable Development Goals
+# Calculate your own carbon footprint for Sustainability Development Goals
 
 ## Calculate your personal carbon footprint and business carbon footprint
 
