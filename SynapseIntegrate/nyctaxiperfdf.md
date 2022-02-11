@@ -204,3 +204,33 @@ LookForNULLs@noNULLs select(mapColumn(
 - Details graph on tasks
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow20.jpg "Entire Flow")
+
+- Took more than 2 hours
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow21.jpg "Entire Flow")
+
+- Details of the run
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow23.jpg "Entire Flow")
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow22.jpg "Entire Flow")
+
+- cost
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow24.jpg "Entire Flow")
+
+- Now 32+16 Cores
+
+- Entire Flow
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow27.jpg "Entire Flow")
+
+- Pipeline run details and progress
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow26.jpg "Entire Flow")
+
+- Spark UI with tasks
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow25.jpg "Entire Flow")
+
+## Done
