@@ -188,10 +188,19 @@ LookForNULLs@noNULLs select(mapColumn(
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow16.jpg "Entire Flow")
 
-- Look into the run details
+- Look into the run details for 32+16 cores
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow17.jpg "Entire Flow")
 
 - Lineage through purview
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow18.jpg "Entire Flow")
+
+- Run for 16+16 Cores
+- In progress spark application runs
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow19.jpg "Entire Flow")
+
+- Details graph on tasks
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow20.jpg "Entire Flow")
