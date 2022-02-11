@@ -241,4 +241,8 @@ LookForNULLs@noNULLs select(mapColumn(
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow29.jpg "Entire Flow")
 
+- Cost
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow30.jpg "Entire Flow")
+
 ## Done
