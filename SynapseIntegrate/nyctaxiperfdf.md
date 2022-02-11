@@ -233,4 +233,12 @@ LookForNULLs@noNULLs select(mapColumn(
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow25.jpg "Entire Flow")
 
+- Completed run in 55 mins
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow28.jpg "Entire Flow")
+
+- Details on each tasks
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow29.jpg "Entire Flow")
+
 ## Done
