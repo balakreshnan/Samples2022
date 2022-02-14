@@ -245,4 +245,25 @@ LookForNULLs@noNULLs select(mapColumn(
 
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow30.jpg "Entire Flow")
 
+- Adding derived column
+- process with 32+16 cores
+
+- pipeline flow
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow33.jpg "Entire Flow")
+
+- Dataflow
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow32.jpg "Entire Flow")
+
+- Job status
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow34.jpg "Entire Flow")
+
+- Each task and time taken
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow35.jpg "Entire Flow")
+
+- Time taken is about an hour
+
 ## Done
