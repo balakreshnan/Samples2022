@@ -265,5 +265,8 @@ LookForNULLs@noNULLs select(mapColumn(
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow35.jpg "Entire Flow")
 
 - Time taken is about an hour
+- Cost
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/nyctaxiyellow36.jpg "Entire Flow")
 
 ## Done
