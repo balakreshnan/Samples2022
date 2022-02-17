@@ -8,6 +8,7 @@
 - Storage Account
 - Azure ML
 - Total Size is 1.5 billion rows
+- Nyc Taxi yellow data set
 
 ## Code
 
