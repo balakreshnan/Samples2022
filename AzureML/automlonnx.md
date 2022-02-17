@@ -7,6 +7,7 @@
 - Azure Account
 - Storage Account
 - Azure ML
+- Total Size is 1.5 billion rows
 
 ## Code
 
