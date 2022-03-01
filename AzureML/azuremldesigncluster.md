@@ -193,6 +193,8 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer4.jpg "Architecture")
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer7.jpg "Architecture")
+
 - Execute python script for dataframe statistics
 - Replace with below code
 
@@ -243,6 +245,59 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 ```
+
+```
+Describe stats : 
+
+               Col2          Col5  ...        Col18        Col21
+count  1000.000000   1000.000000  ...  1000.000000  1000.000000
+mean     20.903000   3271.258000  ...     1.155000     1.300000
+std      12.058814   2822.736876  ...     0.362086     0.458487
+min       4.000000    250.000000  ...     1.000000     1.000000
+25%      12.000000   1365.500000  ...     1.000000     1.000000
+50%      18.000000   2319.500000  ...     1.000000     1.000000
+75%      24.000000   3972.250000  ...     1.000000     2.000000
+max      72.000000  18424.000000  ...     2.000000     2.000000
+
+[8 rows x 8 columns]
+ 
+Group by aggre : 
+
+                 Col5    Col2
+max     18424.000000  72.000
+mean             NaN  20.903
+median   2319.500000  18.000
+min       250.000000   4.000
+skew        1.949628     NaN
+ 
+Count median value count for col5, Col2 : 
+
+ Col5    2319.5
+Col2      18.0
+dtype: float64
+ 
+Count mean value count for col5, Col2 : 
+
+ Col5    3271.258
+Col2      20.903
+dtype: float64
+ 
+Count distinct value count for col4 : 
+
+ A43     280
+A40     234
+A42     181
+A41     103
+A49      97
+A46      50
+A45      22
+A44      12
+A410     12
+A48       9
+Name: Col4, dtype: int64
+```
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer8.jpg "Architecture")
 
 - Drag and drop Summarize Data
 - Will generate statistics for dataframe
