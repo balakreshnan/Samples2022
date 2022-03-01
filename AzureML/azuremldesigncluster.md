@@ -112,8 +112,13 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 - Replace the entire section with below
 
 ```
+
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
 # imports up here can be used to
 import pandas as pd
+import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
@@ -152,12 +157,38 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     from azureml.core import Run
     run = Run.get_context(allow_offline=True)
     run.upload_file(f"graphics/{img_file}", img_file)
+    
+    #Initialize the class object
+    kmeans = KMeans(n_clusters= 10)
+    
+    #predict the labels of clusters.
+    label = kmeans.fit_predict(df)
+    #Getting the Centroids
+    centroids = kmeans.cluster_centers_
+    u_labels = np.unique(label)
+    print("label = ", label)
+    print("labels: " , u_labels)
+    print("Centroids: " , centroids)
+    
+    #for i in u_labels:
+    #    plt.scatter(df[label == i , 0] , df[label == i , 1] , label = i)
+
+
+    plt.scatter(centroids[:,0] , centroids[:,1] , s = 80, color = 'k')
+    plt.legend()
+    plt.show()
+    img_file = "kmeanschartcentroid.png"
+    plt.savefig(img_file)
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
     # E.g.
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
+
 ```
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer4.jpg "Architecture")
