@@ -297,7 +297,7 @@ A48       9
 Name: Col4, dtype: int64
 ```
 
-![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer8.jpg "Architecture")
-
 - Drag and drop Summarize Data
 - Will generate statistics for dataframe
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer8.jpg "Architecture")
