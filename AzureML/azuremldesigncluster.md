@@ -148,3 +148,44 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ```
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/designer4.jpg "Architecture")
+
+- Execute python script for dataframe statistics
+- Replace with below code
+
+```
+import numpy as np
+import pandas as pd
+#from pandas_profiling import ProfileReport
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be None.
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+    print(dataframe1.describe())
+    dataframe1.agg(
+        {
+            "Col5": ["min", "max", "median", "skew"],
+            "Col2": ["min", "max", "median", "mean"],
+        }
+    )
+    print(dataframe1[["Col5", "Col2"]].median())
+    print(dataframe1[["Col5", "Col2"]].mean())
+    print(dataframe1["Col4"].value_counts())
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
