@@ -29,6 +29,9 @@
 - Code has both covariance and correlation matrix
 
 ```
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
 # imports up here can be used to
 import pandas as pd
 
@@ -70,6 +73,16 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     img_file = "covchart1.png"
     plt.savefig(img_file)
 
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    run.upload_file(f"graphics/{img_file}", img_file)
+    
+    
+    fig, axs = plt.subplots(figsize=(12, 4))        # Create an empty matplotlib Figure and Axes
+    # dataframe1.plot.area(ax=axs)                   # Use pandas to put the area plot on the prepared Figure/Axes
+    dataframe1.plot.box(ax=axs)  
+    img_file = "boxplot.png"        # Do any matplotlib customization you like
+    fig.savefig(img_file) 
     from azureml.core import Run
     run = Run.get_context(allow_offline=True)
     run.upload_file(f"graphics/{img_file}", img_file)
@@ -153,6 +166,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 - Replace with below code
 
 ```
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# imports up here can be used to
 import numpy as np
 import pandas as pd
 #from pandas_profiling import ProfileReport
@@ -172,20 +189,29 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     # to sys.path. Therefore, if your zip file contains a Python file
     # mymodule.py you can import it using:
     # import mymodule
-    print(dataframe1.describe())
-    dataframe1.agg(
+    print(" \nDescribe stats : \n\n", dataframe1.describe())
+    print(" \nGroup by aggre : \n\n", dataframe1.agg(
         {
             "Col5": ["min", "max", "median", "skew"],
             "Col2": ["min", "max", "median", "mean"],
         }
-    )
-    print(dataframe1[["Col5", "Col2"]].median())
-    print(dataframe1[["Col5", "Col2"]].mean())
-    print(dataframe1["Col4"].value_counts())
+    ))
+    print(" \nCount median value count for col5, Col2 : \n\n", dataframe1[["Col5", "Col2"]].median())
+    print(" \nCount mean value count for col5, Col2 : \n\n", dataframe1[["Col5", "Col2"]].mean())
+    print(" \nCount distinct value count for col4 : \n\n", dataframe1["Col4"].value_counts())
+    # Count total NaN at each column in a DataFrame
+    print(" \nCount total NaN at each column in a DataFrame : \n\n", dataframe1.isnull().sum())
 
+    percent_missing = dataframe1.isnull().sum() * 100 / len(dataframe1)
+    missing_value_df = pd.DataFrame({'column_name': dataframe1.columns,
+                                    'percent_missing': percent_missing})
+    print(missing_value_df)
     # Return value must be of a sequence of pandas.DataFrame
     # E.g.
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 ```
+
+- Drag and drop Summarize Data
+- Will generate statistics for dataframe
