@@ -73,3 +73,8 @@
 ![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/Percept/images/fig14.jpg "Entire Flow")
 
 - Small objects are always challenging to detect
+
+- Test the model in Custom vision service
+- use test1.jpg and test2.jpg images
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/Percept/images/fig15.jpg "Entire Flow")
