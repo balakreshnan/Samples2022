@@ -37,8 +37,8 @@ from synapse.ml.cognitive import *
 - Now bring the keyvault secrets for cognitive service and sql password
 
 ```
-key = TokenLibrary.getSecret("accvault1", "bbcogtext", "accvault1")
-password = TokenLibrary.getSecret("accvault1", "bbaccdbauth", "accvault1")
+key = TokenLibrary.getSecret("vaultname", "secretname", "valutlinked")
+password = TokenLibrary.getSecret("vaultname", "secretname", "valutlinked")
 ```
 
 - configure the JDBC
