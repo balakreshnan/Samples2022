@@ -21,13 +21,13 @@
 
 ### Process Flow
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rlarch.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rlarch.jpg "Entire Flow")
 
 - Above shows the entire process flow for RL
 - This is subjective to change based on new project enhancements
 - Also note, the simulation is needed and depends on other 3rd party softwares like anylogic, Mathworks Simulink, VP link
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rl1.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rl1.jpg "Entire Flow")
 
 ## Training and deploy
 
@@ -51,22 +51,22 @@ package "exportedname"
 - then search for simAction and paste the package command above
 - Now we are ready to train
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rl2.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rl2.jpg "Entire Flow")
 
 - Training takes some time and see the iterations
 - at one point the iterations will flat line like below
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rl3.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rl3.jpg "Entire Flow")
 
 - Now stop the training
 - Check the iteration assesments
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rl5.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rl5.jpg "Entire Flow")
 
 - Click Export Brain
 - This will create a image in container registry
 
-![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/Images/rl4.jpg "Entire Flow")
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/RL/images/rl4.jpg "Entire Flow")
 
 - Now check the exported brains section on the left navigation menu
 - There are few ways to deploy the brain
