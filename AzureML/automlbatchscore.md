@@ -77,6 +77,7 @@ dfscoreinput1 = dfscoreinput.drop('survived', 1)
 
 ```
 result1 = model.predict(dfscoreinput1)
+#result1 = model.predict_proba(dfscoreinput1)
 ```
 
 - Append the predicted output and add to existing dataset to send
