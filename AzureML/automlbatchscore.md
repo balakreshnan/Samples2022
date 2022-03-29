@@ -105,4 +105,6 @@ datastore.upload(src_dir='./output3',
                   overwrite=True)
 ```
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/automlbatchpredict1.jpg "Architecture")
+
 ## done
