@@ -20,7 +20,7 @@ SELECT
     Top 100 * 
 FROM
     OPENROWSET(
-        BULK 'https://storageaccname.dfs.core.windows.net/$logs/blob/2022/*/*/*/*.log',
+        BULK 'https://storageaccname.dfs.core.windows.net/$logs/blob/*/*/*/*/*.log',
         FORMAT = 'CSV',
         PARSER_VERSION = '2.0',
         FIELDTERMINATOR =';', 
