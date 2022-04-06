@@ -134,3 +134,14 @@ FROM
 ```
 Select top 100 * from vwStorageLogs;
 ```
+
+- to cast date
+
+```
+Select top 10 svcname, storeaccount, container, ipaddress
+, year(CAST(trxdate AS DATETIME2)) as year
+, MONTH(CAST(trxdate AS DATETIME2)) as month
+, DAY(CAST(trxdate AS DATETIME2)) as day
+, col14 as loginuser
+from vwStorageLogs;
+```
