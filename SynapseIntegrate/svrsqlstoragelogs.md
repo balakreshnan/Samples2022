@@ -145,3 +145,32 @@ Select top 10 svcname, storeaccount, container, ipaddress
 , col14 as loginuser
 from vwStorageLogs;
 ```
+
+- group by
+
+```
+Select svcname, storeaccount, ipaddress
+, year(CAST(trxdate AS DATETIME2)) as year
+, MONTH(CAST(trxdate AS DATETIME2)) as month
+, DAY(CAST(trxdate AS DATETIME2)) as day
+, col14 as loginuser
+from vwStorageLogs
+Group by svcname, storeaccount, ipaddress, col14,
+ year(CAST(trxdate AS DATETIME2)), MONTH(CAST(trxdate AS DATETIME2)), 
+DAY(CAST(trxdate AS DATETIME2))
+Order by svcname, storeaccount, ipaddress, col14,
+ year(CAST(trxdate AS DATETIME2)), MONTH(CAST(trxdate AS DATETIME2)), 
+DAY(CAST(trxdate AS DATETIME2));
+```
+
+- Took 1:25 mins to run the above query again 19 million rows
+
+- doing total count
+- Took 41 seconds in serverless sql
+- close to 19 million rows
+
+```
+select count(*) from vwStorageLogs;
+```
+
+![Entire Flow](https://github.com/balakreshnan/Samples2022/blob/main/SynapseIntegrate/Images/storagelogs1.jpg "Entire Flow")
