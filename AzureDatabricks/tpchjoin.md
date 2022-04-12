@@ -19,6 +19,7 @@
 - First lets set the service principal for Azure Databricks to access storage
 - Replace storagename with your storage account name
 - Get the service principal client id, secret, and tenant id for the below
+- Cluster size is DSv2 with 4 cores and 14GB ram with 3 nodes
 
 ```
 %scala
@@ -185,3 +186,27 @@ dfout = spark.sql('''select
 ```
 dfout.repartition(20).write.parquet('abfss://containername@storageaccountname.dfs.core.windows.net/tpschoutput1/')
 ```
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch2.jpg "Architecture")
+
+- Running with 16 cores and 116GB ram with 2 to 8 nodes autoscale
+
+```
+lineitem.count()
+```
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch3.jpg "Architecture")
+
+```
+dfout.repartition(20).mode("overwrite").write.parquet('abfss://containername@storageaccountname.dfs.core.windows.net/tpschoutput1/')
+```
+
+```
+dfout.repartition(20).mode("overwrite").write.parquet('abfss://containername@storageaccountname.dfs.core.windows.net/tpschoutput2/')
+```
+
+- Workers info
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch4.jpg "Architecture")
+
+## done
