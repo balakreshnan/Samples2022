@@ -209,4 +209,6 @@ dfout.repartition(20).mode("overwrite").write.parquet('abfss://containername@sto
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch4.jpg "Architecture")
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch5.jpg "Architecture")
+
 ## done
