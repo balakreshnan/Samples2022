@@ -157,6 +157,8 @@ OPTIONS (
 lineitem.count()
 ```
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDatabricks/images/tpch1.jpg "Architecture")
+
 - write
 
 ```
