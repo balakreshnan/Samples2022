@@ -413,3 +413,58 @@ tostring(properties.status.failureReason)
 | top 3 by series_stats_n_max desc
 | render timechart
 ```
+
+- Clustering data
+
+```
+azureadinternal | join kind=fullouter (Authtable) on location, $left.location == $right.location
+| where UserId == "xx3@domain1.com"
+| where ['time'] between (datetime('2022-01-01 00:00:00') .. datetime('2022-05-31 00:00:00'))
+| where properties.status.errorCode != 0
+| evaluate autocluster()
+```
+
+- Anamoly detection
+
+```
+let min_t = datetime(2022-01-01 00:00:00);
+let max_t = datetime(2022-05-31 00:00:00);
+let dt = 2h;
+azureadinternal | join kind=fullouter (Authtable) on location, $left.location == $right.location
+| where UserId == "xx3@domain1.com"
+| where properties.status.errorCode != 0 
+| limit  1000
+| make-series num=count() on ['time'] from min_t to max_t step dt by tostring(properties.status.failureReason) 
+ //  select a single time series for a cleaner visualization
+| extend (anomalies, score, baseline) = series_decompose_anomalies(num, 1.5, -1, 'linefit')
+| render anomalychart with(anomalycolumns=anomalies, title='Web app. traffic of a month, anomalies') //use "| render anomalychart with anomalycolumns=anomalies" to render the anomalies as bold points on the series charts.
+```
+
+- Forecasting
+
+```
+let min_t = datetime(2022-01-01 00:00:00);
+let max_t = datetime(2022-05-31 00:00:00);
+let dt = 2h;
+let horizon=7d;
+azureadinternal | join kind=fullouter (Authtable) on location, $left.location == $right.location
+| where UserId == "xx3@domain1.com"
+| where properties.status.errorCode != 0 
+| limit  1000
+| make-series num=count() on ['time'] from min_t to max_t step dt by tostring(properties.status.failureReason) 
+ //  select a single time series for a cleaner visualization
+| extend forecast = series_decompose_forecast(num, toint(horizon/dt))
+| render timechart with(title='signin errors, forecasting the next week by Time Series Decomposition')
+```
+
+- Now machine learning
+- Clustering
+
+```
+let min_peak_t=datetime(2022-01-01 00:00:00);
+let max_peak_t=datetime(2022-05-31 00:00:00);
+azureadinternal | join kind=fullouter (Authtable) on location, $left.location == $right.location
+| where UserId == "xx3@domain1.com"
+| where ['time'] between(min_peak_t..max_peak_t)
+| evaluate autocluster()
+```
