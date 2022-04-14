@@ -13,6 +13,9 @@
 ## Code
 
 - Azure AD signin logs
+- Audit logs
+- Since the format is wired array JSON we store as dynamics
+- Then convert to proper table
 
 ```
 iamlogssignin
@@ -20,12 +23,20 @@ iamlogssignin
 
 auditlogs1
 | limit 100
+```
 
+- Drop the existence data in the table
+
+```
 .drop extents <| .show table iamlogssignin extents 
 
 .show table iamlogssignin policy  ingestionbatching 
+```
 
+- Create the table with dynamic
+- create a mapping first
 
+```
 .alter column iamlogssignin.data type=dynamic
 
 .create table iamlogssignin ingestion json mapping 'iamlogssigninMapping' '[{"column":"data","path":"$","datatype":"dynamic"}]'
@@ -38,7 +49,11 @@ tenantId = tostring(r.tenantId), resultType = toint(r.resultType), resultSignatu
 callerIpAddress = tostring(r.callerIpAddress), correlationId = tostring(r.correlationId), 
 identity = tostring(r.identity), Level = toint(r.Level), location = tostring(r.location),
 properties = todynamic(r.properties)
+```
 
+- Create function to take dynamics and convert to proper table format
+
+```
 .create-or-alter function iamlogssigninparsing(){
     iamlogssignin
 | mv-expand r = data.records
@@ -49,12 +64,19 @@ callerIpAddress = tostring(r.callerIpAddress), correlationId = tostring(r.correl
 identity = tostring(r.identity), Level = toint(r.Level), location = tostring(r.location),
 properties = todynamic(r.properties)
 }
+```
 
+- Assign the dynamic to the converted table
+
+```
 .set aadsignins <|
     iamlogssigninparsing()
     | limit 0
+```
 
+- Create a policy to convert the dynamic to the proper table
 
+```
 //  Create an update policy to transfer landing to landingTransformed
 .alter table aadsignins policy update
 @'[{"IsEnabled": true, "Source": "iamlogssignin", "Query": "iamlogssigninparsing", "IsTransactional": true, "PropagateIngestionProperties": false}]'
@@ -74,16 +96,29 @@ auditlogs1
 
 external_table("auditlogs")
 | limit 10
+```
 
+- Create table with dynamic data type
+- create a mapping for that
+- use the mapping in data ingestion
+
+```
 .alter column auditlogs1.data type=dynamic
 .create table auditlogs1 ingestion json mapping 'auditlogs1Mapping' '[{"column":"data","path":"$","datatype":"dynamic"}]'
 //update the connection setting if it's already created other wise do this and use this mapping
+```
 
+- Drop old events
+
+```
 .drop extents <| .show table auditlogs1 extents 
 
 .show table auditlogs1 policy  ingestionbatching 
+```
 
+- Select the query
 
+```
 auditlogs1
 | mv-expand r = data.records
 | project  rectime = todatetime(r.['time']), resourceId = tostring(r.resourceId), 
@@ -92,7 +127,11 @@ tenantId = tostring(r.tenantId), resultSignature = tostring(r.resultSignature), 
 callerIpAddress = tostring(r.callerIpAddress), correlationId = tostring(r.correlationId), 
 identity = tostring(r.identity), Level = toint(r.Level), location = tostring(r.location),
 properties = todynamic(r.properties)
+```
 
+- Create the function to convert dynamic to proper table format
+
+```
 .create-or-alter function auditlogs1parsing(){
 auditlogs1
 | mv-expand r = data.records
@@ -103,12 +142,19 @@ callerIpAddress = tostring(r.callerIpAddress), correlationId = tostring(r.correl
 identity = tostring(r.identity), Level = toint(r.Level), location = tostring(r.location),
 properties = todynamic(r.properties)
 }
+```
 
+- Set the audit logs
+
+```
 .set aadauditlogs <|
     auditlogs1parsing()
     | limit 0
+```
 
+- Now assign the policy
 
+```
 //  Create an update policy to transfer landing to landingTransformed
 .alter table aadauditlogs policy update
 @'[{"IsEnabled": true, "Source": "auditlogs1", "Query": "auditlogs1parsing", "IsTransactional": true, "PropagateIngestionProperties": false}]'
