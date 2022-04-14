@@ -102,3 +102,25 @@ GO
 SELECT TOP 100 * FROM dbo.logscheck
 GO
 ```
+
+- Lets do soem queries
+- Col14 provides user login info
+- col9 provides managed identity or service principal information
+
+```
+select count(*) from dbo.logscheck
+go
+
+select distinct col14 from dbo.logscheck
+Go
+
+select col14, count(*) as AccessCount from dbo.logscheck group by col14 order by col14
+go
+
+select top 1000 * from dbo.logscheck where col14 is NULL
+Go
+
+-- col9 is object id of a resource  = Managed identity
+select col9 as MIResource, Count(*) as accesscount from dbo.logscheck group by col9 order by col9
+GO
+```
