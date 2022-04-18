@@ -14,6 +14,8 @@
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDataExplorer/images/ADXArch.jpg "Architecture")
 
+## Azure Data Explorer Flow
+
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDataExplorer/images/ADXArchprocess.jpg "Architecture")
 
 ## Code
