@@ -583,3 +583,20 @@ RunDetails(hyperdrive_run).show()
 ```
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/raietoe3.jpg "Architecture")
+
+- Get the best model
+
+```
+best_run = hyperdrive_run.get_best_run_by_primary_metric()
+best_run_metrics = best_run.get_metrics()
+parameter_values = best_run.get_details()['runDefinition']['arguments']
+
+print('Best Run Id: ', best_run.id)
+print('\n Accuracy:', best_run_metrics['accuracy'])
+```
+
+- Register the model
+
+```
+model = best_run.register_model(model_name='titanic-model', model_path='outputs/titanic-model.pkl')
+```
