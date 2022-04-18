@@ -10,6 +10,12 @@
 - Create a AuthTable to store username and locations
 - Abilityt to change the user, location assignment
 
+## Architecture
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDataExplorer/images/ADXArch.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDataExplorer/images/ADXArchprocess.jpg "Architecture")
+
 ## Code
 
 - Azure AD signin logs
