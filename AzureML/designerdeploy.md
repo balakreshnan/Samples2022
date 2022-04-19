@@ -27,6 +27,9 @@
 
 - Click Sumbit and train the model
 - Select Create batch inference pipeline
+- Create a data store to ADLS gen2 with new dataset with empty file.
+- Then add export data
+- Save the output as parquet and give a filename
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureML/images/amldesigner5.jpg "Architecture")
 
