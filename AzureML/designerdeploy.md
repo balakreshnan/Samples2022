@@ -1,4 +1,4 @@
-# Azure Machine learning deisgner training and automate batch inference
+# Azure Machine learning designer training and automate batch inference using Azure Synapse and Azure databricks
 
 ## Use end to end batch inference using syanpse, azure databricks and AML batch inference pipeline
 
