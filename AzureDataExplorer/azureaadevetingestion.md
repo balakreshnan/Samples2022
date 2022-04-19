@@ -102,6 +102,12 @@ aadsignins
 .alter table iamlogssignin policy retention "{'SoftDeletePeriod': '00:00:00', 'Recoverability':'Enabled'}"
 ```
 
+- Set the policy to clear the original table to avoid duplicate data
+
+```
+.alter table iamlogssignin policy retention "{'SoftDeletePeriod': '0:10:00', 'Recoverability':'Enabled'}"
+```
+
 - Audit logs
 
 ```
