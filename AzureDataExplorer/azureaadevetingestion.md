@@ -47,7 +47,13 @@ auditlogs1
 ```
 .alter column iamlogssignin.data type=dynamic
 
+.create table iamlogssignin (data:dynamic)
+
 .create table iamlogssignin ingestion json mapping 'iamlogssigninMapping' '[{"column":"data","path":"$","datatype":"dynamic"}]'
+
+alter database iamlogssignin policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:30", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
+
+.show table iamlogssignin policy  ingestionbatching
 
 iamlogssignin
 | mv-expand r = data.records
