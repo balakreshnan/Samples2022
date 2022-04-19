@@ -10,6 +10,15 @@
 - Create a AuthTable to store username and locations
 - Abilityt to change the user, location assignment
 
+## Authors
+
+- Vincent-Philippe Lauzon
+- Robert Nottoli
+- Mark Hoiland
+- Balamurugan Balakreshnan
+
+- Thanks to above authors for building this solution
+
 ## Architecture
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureDataExplorer/images/ADXArch.jpg "Architecture")
