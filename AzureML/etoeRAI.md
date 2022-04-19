@@ -598,5 +598,5 @@ print('\n Accuracy:', best_run_metrics['accuracy'])
 - Register the model
 
 ```
-model = best_run.register_model(model_name='titanic-model', model_path='outputs/titanic-model.pkl')
+model = best_run.register_model(model_name='titanic-model', model_path='outputs/titanic_model.pkl')
 ```
