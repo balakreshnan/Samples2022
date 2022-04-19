@@ -8,7 +8,7 @@
 - Here location based user assignment is what used
 - Certain user will have certain location access
 - Create a AuthTable to store username and locations
-- Abilityt to change the user, location assignment
+- Ability to change the user, location assignment
 
 ## Authors
 
