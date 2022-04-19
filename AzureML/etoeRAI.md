@@ -11,7 +11,7 @@
 ## Setup
 
 - Log into Azure ML workspace
-- Create a notebook with Python 3.6 with Azure ML SDK
+- Create a notebook with Python 3.8 with Azure ML SDK
 - Let install
 
 ```
