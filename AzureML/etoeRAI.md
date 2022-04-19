@@ -600,3 +600,206 @@ print('\n Accuracy:', best_run_metrics['accuracy'])
 ```
 model = best_run.register_model(model_name='titanic-model', model_path='outputs/titanic_model.pkl')
 ```
+
+- Now deploy the model
+- create a deployment directory
+
+```
+import os
+
+# Create a folder for the experiment files
+deploy_aci_folder = 'deploy-aci'
+os.makedirs(deploy_aci_folder, exist_ok=True)
+print(deploy_aci_folder, 'folder created')
+```
+
+- load the model to deploy
+
+```
+model_name = 'titanic-model'
+print(model_name)
+model = ws.models[model_name]
+print(model.name, 'version', model.version)
+```
+
+- load the dataset to predict
+
+```
+import joblib
+from azureml.core import Dataset
+model.download(target_dir='./deploy-aci', exist_ok=True)
+dataset = Dataset.get_by_name(ws, name='Titanic-tabular-dataset')
+df = dataset.to_pandas_dataframe().head(1)
+dftest = df.drop(['Survived'], axis=1)
+loaded_model = joblib.load('deploy-aci/titanic_model.pkl')
+print('Columns needed for inference:')
+print(dftest.columns)
+y_hat = loaded_model.predict(dftest)
+print('Prediction')
+print(y_hat)
+```
+
+- Create score file
+
+```
+%%writefile $deploy_aci_folder/score.py
+
+import os 
+import json
+import joblib
+from pandas import json_normalize
+import pandas as pd
+
+# Called when the service is loaded
+def init():
+    global model
+    # Get the path to the deployed model file and load it
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'titanic_model.pkl')
+    model = joblib.load(model_path)
+
+# Called when a request is received
+def run(raw_data):
+    dict= json.loads(raw_data)
+    df = json_normalize(dict['raw_data']) 
+    y_pred = model.predict(df)
+    print(type(y_pred))
+    
+    result = {"result": y_pred.tolist()}
+    return result
+```
+
+- create the inference environment
+
+```
+%%writefile $deploy_aci_folder/experiment_env.yml
+name: experiment_env
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.8
+- scikit-learn
+- ipykernel
+- matplotlib
+- pandas
+- pip
+- pip:
+  - azureml-defaults
+  - pyarrow
+```
+
+- create the environment
+
+```
+from azureml.core import Environment
+
+# Create a Python environment for the experiment (from a .yml file)
+experiment_env = Environment.from_conda_specification("experiment-env", deploy_aci_folder + "/experiment_env.yml")
+
+# Let Azure ML manage dependencies
+experiment_env.python.user_managed_dependencies = False
+# register the environment
+experiment_env.register(workspace=ws)
+# Print the environment details
+print(experiment_env.name, 'defined.')
+print(experiment_env.python.conda_dependencies.serialize_to_string())
+```
+
+- Set ACI configuration for inferencing
+
+```
+from azureml.core.webservice import AciWebservice
+aci_config = AciWebservice.deploy_configuration(
+            cpu_cores = 1, 
+            memory_gb = 2, 
+            tags = {'model': 'titanic model'},
+            auth_enabled=True,
+            enable_app_insights=True,
+            collect_model_data=True)
+```
+
+- Deploy the model
+
+```
+from azureml.core.model import InferenceConfig
+from azureml.core import Model
+#get the model object from the workspace
+model = Model(ws, model_name)
+#get the environment from the workspace
+env = Environment.get(ws, 'experiment-env')
+
+inference_config = InferenceConfig(source_directory=deploy_aci_folder,
+                                   entry_script='score.py',
+                                   environment= env)
+
+# Deploy the model as a service
+print('Deploying model...')
+service_name = "titanic-service"
+service = Model.deploy(ws, service_name, [model], inference_config, aci_config, overwrite=True)
+```
+
+```
+service.wait_for_deployment(True)
+print(service.state)
+```
+
+- get endpoint details
+
+```
+endpoint = service.scoring_uri
+print(endpoint)
+keys = service.get_keys()
+selected_key = keys[0]
+print(selected_key)
+```
+
+- get details
+
+```
+from azureml.core import Webservice
+websrv = Webservice(ws, 'titanic-service')
+endpoint = websrv.scoring_uri
+print(endpoint)
+keys = websrv.get_keys()
+selected_key = keys[0]
+print(selected_key)
+```
+
+- predict results
+
+```
+import json
+url = endpoint
+api_key = selected_key # Replace this with the API key for the web service
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+import requests
+
+def MakePrediction(df):
+    endpoint_url = url
+    body = df.to_json(orient='records') 
+    body = '{"raw_data": ' + body + '}'
+    print(body)
+    r = requests.post(endpoint_url, headers=headers, data=body)
+    return (r.json())
+
+
+dataset = Dataset.get_by_name(ws, name='Titanic-tabular-dataset')
+df = dataset.to_pandas_dataframe().head(5)
+dftest = df.drop(['Survived'], axis=1)
+
+results = MakePrediction(dftest)
+
+val = results['result']
+print('')
+print('predictions')
+print(val)
+```
+
+```
+print(service.state)
+```
+
+- Now delete the file
+
+```
+service.delete()
+```
