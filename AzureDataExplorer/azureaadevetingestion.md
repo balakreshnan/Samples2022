@@ -192,3 +192,21 @@ aadauditlogs
 | limit 10
 
 ```
+
+- Set policy
+
+```
+.show table aadsignins policy caching
+
+.show database iamlogs policy caching
+
+.alter table aadsignins policy caching hot = 3d
+
+.alter table aadauditlogs policy caching hot = 3d
+
+.alter table iamlogssignin policy caching hot = 3d
+
+.alter table auditlogs1 policy caching hot = 3d
+
+.alter database iamlogs policy caching hot = 3d
+```
