@@ -136,3 +136,55 @@ display(analyzeLayouts
 ```
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/SynapseSpark/images/synapsemlforms1.jpg "Architecture")
+
+## AnalyzeLayout
+
+- Using Layout api
+
+```
+from pyspark.sql.functions import col, explode
+
+# Create a dataframe containing the source files
+imageDf = spark.createDataFrame([
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",
+  "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
+], ["source",])
+
+# Run the Form Recognizer service
+analyzeLayouts = (AnalyzeLayout()
+                 .setSubscriptionKey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                 .setLocation("westus2")
+                 .setImageUrlCol("source")
+                 .setOutputCol("Layouts"))
+# Show the results of recognition.
+display(analyzeLayouts
+        .transform(imageDf)
+        .withColumn("documentsresult", explode(col("Layouts.analyzeResult.readResults")))
+        .select("source", "documentsresult"))
+```
+
+- Now display page results
+
+```
+from pyspark.sql.functions import col, explode
+
+# Create a dataframe containing the source files
+imageDf = spark.createDataFrame([
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",
+  "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
+], ["source",])
+
+# Run the Form Recognizer service
+analyzeLayouts = (AnalyzeLayout()
+                 .setSubscriptionKey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                 .setLocation("westus2")
+                 .setImageUrlCol("source")
+                 .setOutputCol("Layouts"))
+# Show the results of recognition.
+display(analyzeLayouts
+        .transform(imageDf)
+        .withColumn("documentsresult", explode(col("Layouts.analyzeResult.pageResults")))
+        .select("source", "documentsresult"))
+```
