@@ -64,9 +64,9 @@ from pyspark.sql.functions import col, explode
 
 # Create a dataframe containing the source files
 imageDf = spark.createDataFrame([
-  ("https://storageaccount.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxxxx",
-  "https://storageaccount.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxxx",
-  "https://storageaccount.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxxxx",)
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
 ], ["source",])
 
 # Run the Form Recognizer service
@@ -92,9 +92,9 @@ from pyspark.sql.functions import col, explode
 
 # Create a dataframe containing the source files
 imageDf = spark.createDataFrame([
-  ("https://storageaccount.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxxxx",
-  "https://storageaccount.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxxx",
-  "https://storageaccount.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxxxx",)
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
 ], ["source",])
 
 # Run the Form Recognizer service
@@ -146,8 +146,8 @@ from pyspark.sql.functions import col, explode
 
 # Create a dataframe containing the source files
 imageDf = spark.createDataFrame([
-  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",
-  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",),
   "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
 ], ["source",])
 
@@ -171,8 +171,8 @@ from pyspark.sql.functions import col, explode
 
 # Create a dataframe containing the source files
 imageDf = spark.createDataFrame([
-  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",
-  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",
+  ("https://storagename.dfs.core.windows.net/containername/billoflading/billofladding1.png?sp=r&st=2022xxxx",),
+  "https://storagename.dfs.core.windows.net/containername/billoflading/billofladding2.png?sp=r&st=2022xxxx",),
   "https://storagename.dfs.core.windows.net/containername/billoflading/BillofLading_Labeled_resized.jpg?sp=r&st=2022xxx",)
 ], ["source",])
 
