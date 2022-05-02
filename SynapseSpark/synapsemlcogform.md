@@ -188,3 +188,74 @@ display(analyzeLayouts
         .withColumn("documentsresult", explode(col("Layouts.analyzeResult.pageResults")))
         .select("source", "documentsresult"))
 ```
+
+## Process Large batch as dataframe
+
+- Set the root and sas key
+
+```
+root = "https://storagename.dfs.core.windows.net/containername/billoflading/"
+sas = "?sp=r&st=2022-xxxxxxx"
+```
+
+- Lets create a function to parse abfss file url and add http for the data
+- abfss is what dataframe understands to load into spark dataframe
+
+```
+from pyspark.sql.functions import udf
+from pyspark.sql.types import StringType
+
+def blob_to_url(blob):
+  [prefix, postfix] = blob.split("@")
+  container = prefix.split("/")[-1]
+  split_postfix = postfix.split("/")
+  account = split_postfix[0]
+  filepath = "/".join(split_postfix[1:])
+  return "https://{}/{}/{}".format(account, container, filepath) + sas
+```
+
+- Add the sas key for container to get permission to files
+- Now load the dataframe
+
+```
+df2 = (spark.read.format("binaryFile")
+       .load("abfss://containername@storageaccount.dfs.core.windows.net/billoflading/*")
+       .select("path")
+       .limit(10)
+       .select(udf(blob_to_url, StringType())("path").alias("url"))
+       .cache()
+      )
+```
+
+- Set the cog svc subscription key
+
+```
+key = "xxxxxx"
+```
+
+- Now call the document api
+
+```
+from synapse.ml.cognitive import *
+
+analyzed_df = (AnalyzeDocument()
+  .setSubscriptionKey(key)
+  .setLocation("eastus")
+  .setPrebuiltModelId("prebuilt-document")
+  .setImageUrlCol("url")
+  .setOutputCol("Layouts")
+  .setErrorCol("errors")
+  .setConcurrency(5)
+  .transform(df2)
+  .cache())
+```
+
+- now lets analyze the results
+
+```
+# Show the results of recognition.
+display(analyzeLayouts
+        .transform(imageDf)
+        .withColumn("documentsresult", col("Layouts.analyzeResult.keyValuePairs"))
+        .select("source", "documentsresult"))
+```
