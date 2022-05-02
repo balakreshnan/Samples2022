@@ -259,3 +259,5 @@ display(analyzeLayouts
         .withColumn("documentsresult", col("Layouts.analyzeResult.keyValuePairs"))
         .select("source", "documentsresult"))
 ```
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/SynapseSpark/images/synapsemlforms5.jpg "Architecture")
