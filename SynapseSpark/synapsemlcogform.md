@@ -254,10 +254,14 @@ analyzed_df = (AnalyzeDocument()
 
 ```
 # Show the results of recognition.
-display(analyzeLayouts
-        .transform(imageDf)
-        .withColumn("documentsresult", col("Layouts.analyzeResult.keyValuePairs"))
-        .select("source", "documentsresult"))
+display(analyzed_df)
 ```
 
-![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/SynapseSpark/images/synapsemlforms5.jpg "Architecture")
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/SynapseSpark/images/synapsemlforms6.jpg "Architecture")
+
+- Now lets write back output of dataframe for further processing
+
+```
+path = "abfss://containername@storagename.dfs.core.windows.net/billofladingoutput/"
+analyzed_df.write.format("parquet").mode("overwrite").save(path)
+```
