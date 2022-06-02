@@ -1,4 +1,4 @@
-# # Hugging Face consuming using sdk
+# Hugging Face consuming using sdk
 
 ## how to consume Hugging Face's python aml sdk
 
