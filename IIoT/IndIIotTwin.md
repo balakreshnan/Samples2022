@@ -53,6 +53,8 @@
 - Function code has to be changed to read the messages from event grid
 - Adjust the code to get the sensor data from the message and store in digital twin
 
+- Code Repo: https://github.com/balakreshnan/ADTTwinNX
+
 - Create a digital twin and create the property and twin
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/IIoT/images/adt3.jpg "Architecture")
