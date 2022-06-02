@@ -1,6 +1,6 @@
-# Hugging Face consuming using sdk
+# Consuming Hugging Face models using AML SDK
 
-## how to consume Hugging Face's python aml sdk
+## How to consume Hugging Face Model in python Azure Machine Learning SDK
 
 ## Details
 
