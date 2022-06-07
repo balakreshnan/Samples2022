@@ -14,7 +14,7 @@
 
 ## Architecture
 
-![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/largeformprocessing.jpg "Architecture")
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/largeformprocessing1.jpg "Architecture")
 
 ## 2 Parts processing
 
