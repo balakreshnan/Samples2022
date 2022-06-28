@@ -55,7 +55,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     from pymongo import MongoClient
     myclient = MongoClient("mongodb://localhost:27017")
     #myclient = MongoClient(staging_mongo_conn)
-    DB_NAME = 'GL_PRED_JUBILANT_HISTORICAL'
+    DB_NAME = 'DBNAME'
     db = myclient.get_database(DB_NAME)
     col_name = 'IND_DUMP'
     coll = db[col_name]
