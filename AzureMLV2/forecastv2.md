@@ -221,4 +221,10 @@ ml_client.jobs.stream(pipeline_job.name)
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureMLV2/images/amlforecast2.jpg "Architecture")
 
 - Wait for it to complete
+- Monitor the job status
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureMLV2/images/amlforecast3.jpg "Architecture")
+
+- Final pipeline output
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureMLV2/images/amlforecast4.jpg "Architecture")
