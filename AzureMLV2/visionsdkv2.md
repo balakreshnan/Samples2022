@@ -17,6 +17,10 @@
 
 - For MlTable based on the folder here is a sample training code
 
+- Entire Code flow
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureMLV2/images/autovision4.jpg "Architecture")
+
 ```
 paths:
   - file: ./train_annotations.jsonl
