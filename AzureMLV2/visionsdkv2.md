@@ -12,6 +12,7 @@
 - Install preview features
 - Remember print version for preview is only available using _version.VERSION
 - Below shows the folder structure to organize your data
+- Data is available here - https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureMLV2/images/datafolderv2-1.jpg "Architecture")
 
