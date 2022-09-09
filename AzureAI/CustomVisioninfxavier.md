@@ -221,7 +221,10 @@ while display.IsStreaming():
 ```
 
 - Now you should see a video source and also the terminal should display output from onnx model
-- Frame runs with 7 or 8 frame rate
+- Frame runs with 4 or 5 frame rate
 - SSD model can run through 70 Frame per second
+- Azure Cognitive Custom Vision Onnx exported model took about 210 to 230 milliseconds for single class prediction
+- Model onnx size was close to 10MB
+- Below you can see the output of the model detecting the steel ball.
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/pinballmodel.png "Architecture")
