@@ -223,3 +223,5 @@ while display.IsStreaming():
 - Now you should see a video source and also the terminal should display output from onnx model
 - Frame runs with 7 or 8 frame rate
 - SSD model can run through 70 Frame per second
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/pinballmodel.png "Architecture")
