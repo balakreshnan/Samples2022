@@ -95,7 +95,7 @@ pip3 install onnxruntime
 
 - Go tho http://customvision.ai
 
-![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier1.jpg "Architecture")
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier3.jpg "Architecture")
 
 - Go to Export Select onnx format
 
