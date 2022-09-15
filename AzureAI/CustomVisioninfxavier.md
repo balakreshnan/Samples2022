@@ -234,3 +234,6 @@ while display.IsStreaming():
 - 1.12.1 doesn't work with jetson xavier nx with jetpack 4.6.1
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/onnxgpu1.jpg "Architecture")
+
+- went from .220 to 0.03 or .04 seconds
+- Super fast
