@@ -1,4 +1,4 @@
-# SecOps Analytics platform Architecture using Azure Data Explorer  (Part of Azure Synapse Analtyics)
+# SecOps Analytics platform Architecture using Azure Data Explorer  (Part of Azure Synapse Analytics)
 
 ## Build your own Security Analytics platform
 
