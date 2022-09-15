@@ -228,3 +228,9 @@ while display.IsStreaming():
 - Below you can see the output of the model detecting the steel ball.
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/pinballmodel.png "Architecture")
+
+- with onnxruntime-gpu with 1.11.0 version only
+- I uninstalled onnxruntime and onnxruntme 1.21.1 - both version
+- 1.12.1 doesn't work with jetson xavier nx with jetpack 4.6.1
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/onnxgpu1.jpg "Architecture")
