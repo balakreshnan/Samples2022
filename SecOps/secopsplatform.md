@@ -64,3 +64,23 @@
 - Now why do we need multiple options, not all use cases in machine learning or deep learning needs lots of data, in that case Azure machine learning is faster and improves productivity
 - if the data set size increased then we have to use Azure Synapse Spark to get the parallelism and scale
 - The above architecture can also be extension of existing cyber security tools available in the market
+
+## Use cases
+
+- Threat detection
+- Real time alerts
+- Automated Malware analysis
+- Threat Monitoring
+- Patch analysis and prirotization
+- Actor profiling
+- Incident Response
+- Operation intelligence reporting
+- Strategic intelligence reporting
+- Campaign Tracking
+- Insider threat
+- Threat Research
+- Deception operations
+- User behavior analysis and profiling between different systems
+- Network Threat detection
+- Detect hacking attempts
+- Detect fraud activities
