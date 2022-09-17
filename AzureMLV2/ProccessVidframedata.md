@@ -160,3 +160,11 @@ ml_client.data.create_or_update(my_data)
 
 - Wait for the upload to complete
 - Only 100MB file size max is uploaded.
+
+## What's next (Yet to implement)
+
+- Use Data labelling tool to label the images
+- Create labels for the images
+- Once the Data labelling is completed in azure machine learning
+- register as ML dataset
+- Create a automated ML project for vision and run the job.
