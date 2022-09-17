@@ -98,6 +98,17 @@ if __name__=="__main__":
     video_to_frames(input_loc, output_loc)
 ```
 
+- might take some time depending on how many frames are processed
+- Wait for it to complete
+
+```
+Done extracting frames.
+11293 frames extracted
+It took 1118 seconds forconversion.
+```
+
+- Took about 18 minutes to process 11293 framesc
+
 ## Register the data set
 
 - Now we have to create a data set
