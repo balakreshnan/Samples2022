@@ -11,6 +11,8 @@
 - Export model as ONNX format
 - Usb camera for jetson xavier nx huehd.com
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/videoprocessingflow.jpg "Architecture")
+
 ``` 
 Note: working with Xavier is not super easy with open source packages
 ```
