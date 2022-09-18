@@ -237,3 +237,12 @@ while display.IsStreaming():
 
 - went from .220 to 0.03 or .04 seconds
 - Super fast
+- Adding new labels like right flip, left flip, Ballendzone (ball near flaps)
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier4.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier5.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier6.jpg "Architecture")
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/jetsonxavier7.jpg "Architecture")
