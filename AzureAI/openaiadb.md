@@ -1,6 +1,6 @@
 # Azure Open AI with Azure Databricks Completions API
 
-## Using  Datbricks process open ai Completions API
+## Using  Databricks process open ai Completions API
 
 ## pre-requisites
 
