@@ -139,3 +139,5 @@ response = openai.Completion.create(
 ```
 print(response.choices[0].text)
 ```
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/batchspeech12.jpg "Architecture")
