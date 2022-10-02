@@ -148,5 +148,6 @@ print(response.choices[0].text)
 
 - Davinci Code 2 model for larger text
 - there is the output
+- Output of summarization
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/batchspeech13.jpg "Architecture")
