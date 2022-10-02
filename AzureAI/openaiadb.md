@@ -10,6 +10,10 @@
 - create compute
 - install library from https://microsoft.github.io/SynapseML/docs/getting_started/installation/#databricks
 - library location - https://mmlspark.blob.core.windows.net/dbcs/SynapseMLExamplesv0.10.1.dbc
+- Create Open AI resource
+- Deploy davinci-001 for short text generation
+- Deploy davinci-002 for long text generation
+- Change the deployment name as needed based on the above 2 deployments
 
 ## Code
 
@@ -141,3 +145,8 @@ print(response.choices[0].text)
 ```
 
 ![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/batchspeech12.jpg "Architecture")
+
+- Davinci Code 2 model for larger text
+- there is the output
+
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/AzureAI/images/batchspeech13.jpg "Architecture")
