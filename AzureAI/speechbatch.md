@@ -45,7 +45,7 @@ Note: create the sas key for input container with read and list permission, othe
 
 ```
 {
-  "contentContainerUrl": "https://adbstore.blob.core.windows.net/callcenterinput?sp=rl&st=2022xxxxxxxxxxxxxxxxxx",
+  "contentContainerUrl": "https://storage.blob.core.windows.net/callcenterinput?sp=rl&st=2022xxxxxxxxxxxxxxxxxx",
   "displayName": "audiobatch1",
   "locale": "en-US",
   "model": null,
