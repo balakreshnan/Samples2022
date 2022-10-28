@@ -170,6 +170,7 @@ plt.show()
 reconstructions = autoencoder.predict(normal_train_data)
 train_loss = tf.keras.losses.mae(reconstructions, normal_train_data)
 
+```
 plt.hist(train_loss[None,:], bins=50)
 plt.xlabel("Train loss")
 plt.ylabel("No of examples")
@@ -183,9 +184,7 @@ plt.show()
 ```
 threshold = np.mean(train_loss) + np.std(train_loss)
 print("Threshold: ", threshold)
-```
 
-```
 reconstructions = autoencoder.predict(anomalous_test_data)
 test_loss = tf.keras.losses.mae(reconstructions, anomalous_test_data)
 
