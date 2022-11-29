@@ -66,6 +66,8 @@ df.write.mode("overwrite").parquet("abfss://containername@storagename.dfs.core.w
 - Create a Azure AD app registration
 - Create a secret
 - Store the clientid, secret, and tenantid in a keyvault
+- add app id as data user, and also ingestor
+- Provide contributor in Access IAM of the ADX cluster.
 - get the keys in spark
 
 ```
@@ -83,7 +85,7 @@ df1 = spark.read.parquet("abfss://container@storagename.dfs.core.windows.net/bec
 - write into kusto
 
 ```
-df.write. \
+df1.write. \
   format("com.microsoft.kusto.spark.datasource"). \
   option("kustoCluster","clustername.region"). \
   option("kustoDatabase","Benchmark"). \
