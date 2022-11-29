@@ -61,3 +61,37 @@ print(spark.conf.get("spark.sql.files.maxPartitionBytes"))
 ```
 df.write.mode("overwrite").parquet("abfss://containername@storagename.dfs.core.windows.net/bechmarklogs1/")
 ```
+
+- Now read from parquet
+- Create a Azure AD app registration
+- Create a secret
+- Store the clientid, secret, and tenantid in a keyvault
+- get the keys in spark
+
+```
+kustoappid = mssparkutils.credentials.getSecret("iamkeys", "kustoappid")
+kustosecret = mssparkutils.credentials.getSecret("iamkeys", "kustosecret")
+kustotenant = mssparkutils.credentials.getSecret("iamkeys", "kustotenant")
+```
+
+- read the data now from Storage
+
+```
+df1 = spark.read.parquet("abfss://container@storagename.dfs.core.windows.net/bechmarklogs1/")
+```
+
+- write into kusto
+
+```
+df.write. \
+  format("com.microsoft.kusto.spark.datasource"). \
+  option("kustoCluster","clustername.region"). \
+  option("kustoDatabase","Benchmark"). \
+  option("kustoTable", "logspark"). \
+  option("kustoAadAppId",kustoappid). \
+  option("kustoAadAppSecret",kustosecret). \
+  option("kustoAadAuthorityID",kustotenant). \
+  option("tableCreateOptions","CreateIfNotExist"). \
+  mode("Append"). \
+  save()
+```
