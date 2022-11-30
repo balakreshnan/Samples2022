@@ -97,3 +97,17 @@ df1.write. \
   mode("Append"). \
   save()
 ```
+
+- Without Service Principal, but using Linked services
+- Much easier to manage the authentication
+
+```
+df1.write \
+    .format("com.microsoft.kusto.spark.synapse.datasource") \
+    .option("spark.synapse.linkedService", "linkedsvcname") \
+    .option("kustoDatabase", "Benchmark") \
+    .option("kustoTable", "logspark") \
+    .option("tableCreateOptions","CreateIfNotExist") \
+    .mode("Append") \
+    .save()
+```
