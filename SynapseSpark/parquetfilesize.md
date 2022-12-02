@@ -1,4 +1,4 @@
-# Optimize file size in Spark
+# Optimize parquet file size in Spark and ingest into Azure data explorer
 
 ## Optimize parquet file size in 1GB chunks for analytics
 
@@ -62,6 +62,7 @@ print(spark.conf.get("spark.sql.files.maxPartitionBytes"))
 df.write.mode("overwrite").parquet("abfss://containername@storagename.dfs.core.windows.net/bechmarklogs1/")
 ```
 
+- I used large instance which is 16 cores and 10 nodes which took about 1 hour to 2TB and 7 hours for 14TB. Close to 30 minutes for 1TB
 - Now read from parquet
 - Create a Azure AD app registration
 - Create a secret
