@@ -7,7 +7,7 @@
 - Office location table
 
 ```
-.create table Meetings ( OfficeProvider:string, Name:string , id:string , meetingroom:string, meetingtime:datetime, duration:long  )
+.create table Officelocations ( callerIpAddress:string, city:string , state:string, OfficeProvider:string )
 ```
 
 - we loaded from csv file with above column names
