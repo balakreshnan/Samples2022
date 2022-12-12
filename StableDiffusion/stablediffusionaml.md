@@ -54,6 +54,8 @@ from diffusers import StableDiffusionPipeline
 pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", revision="fp16", torch_dtype=torch.float16)  
 ```
 
+![Architecture](https://github.com/balakreshnan/Samples2022/blob/main/StableDiffusion/images/sd1.jpg "Architecture")
+
 - Setup cuda to process inferencing
 
 ```
