@@ -126,10 +126,11 @@ csvmapping = '[  {"Column": "businessPhones", "Properties": {"Ordinal": "0"}},  
 
 ```
 from azure.kusto.data import KustoConnectionStringBuilder, DataFormat
+from azure.kusto.ingest import IngestionMappingKind
 ```
 
 ```
-ingestion = IngestionProperties(database="Benchmark", table="graphdata", data_format=DataFormat.CSV, ingestion_mapping_kind=None)
+ingestion = IngestionProperties(database="Benchmark", table="graphdata1", data_format=DataFormat.CSV, ingestion_mapping_kind=IngestionMappingKind.CSV, ingestion_mapping_reference=csvmapping)
 ```
 
 - now ingest the data
